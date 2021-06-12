@@ -28,6 +28,6 @@ public class Obj extends GameElement {
     }
 
     private void changeImg() {
-        this.setIcon(new ImageIcon("src/data/obj/" + type + ".jpg"));
+        this.setIcon(new ImageIcon("data/obj/" + type + ".jpg"));
     }
 }

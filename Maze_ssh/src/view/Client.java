@@ -15,12 +15,13 @@ import java.net.SocketException;
 import java.text.DecimalFormat;
 
 public class Client extends JPanel {
-    ImageIcon bg_icon = new ImageIcon("src/data/chatroom/chat_bg.jpg");
+    ImageIcon bg_icon = new ImageIcon("data/chatroom/chat_bg.jpg");
     private JTextArea textArea = new JTextArea(10, 20);
     private JTextField textField = new JTextField(20);
     private JScrollPane tapane = new JScrollPane(textArea);
     private Socket socket = null;
-    private final String serverHost = "2001:da8:bc:5ad0:c87c:9d37:392f:cdc0";
+    private final String serverHost = (String) Session.session.get("ip");
+
     private DataOutputStream dataOutputStream;
     private boolean isConn = false;
     private JPanel panel;
@@ -44,10 +45,14 @@ public class Client extends JPanel {
         JLabel bg_lable = new JLabel();
         JButton keep_bt = new JButton("存档");
         JButton restore_bt = new JButton("读档");
+        JButton config_bt = new JButton("修改配置");
         JLabel skip = new JLabel(" 跳过片头...");
+        JLabel blank = new JLabel("                        ");
         JComboBox keep = new JComboBox();
         JComboBox restore = new JComboBox();
 //        组件配置
+        blank.setPreferredSize(new Dimension(300, 25));
+        config_bt.setPreferredSize(new Dimension(100, 25));
         bg_lable.setSize(300, 300);
         bg_lable.setIcon(new ImageIcon(bg_icon.getImage().getScaledInstance(bg_lable.getWidth(), bg_lable.getHeight(), bg_icon.getImage().SCALE_DEFAULT)));
         textArea.setOpaque(false);
@@ -94,7 +99,8 @@ public class Client extends JPanel {
         add(keep_bt);
         add(restore);
         add(restore_bt);
-
+        add(blank);
+        add(config_bt);
 //        连接服务器
         try {
             socket = new Socket(serverHost, 8888);
@@ -108,6 +114,7 @@ public class Client extends JPanel {
             textArea.append("服务器意外终止");
         } catch (IOException e) {
             System.out.println("连接服务器失败");
+            textArea.append("连接服务器失败");
             e.printStackTrace();
         }
         skip.addMouseListener(new MouseAdapter() {
@@ -136,7 +143,7 @@ public class Client extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("按下了存档键");
                 int index = (keep.getSelectedIndex() + 1);
-                File file = new File("src/data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
+                File file = new File("data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
                     for (int i = 0; i < 25; i++) {
                         oos.writeObject(Manager.em[i]);
@@ -155,7 +162,7 @@ public class Client extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int index = (restore.getSelectedIndex() + 1);
-                File file = new File("src/data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
+                File file = new File("data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
                 if (file.length() == 0) {
                     sendmsg("server sends file to client");
                     sendmsg(index + "");
@@ -175,6 +182,13 @@ public class Client extends JPanel {
                 } catch (Exception err) {
                     err.printStackTrace();
                 }
+            }
+        });
+        config_bt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Config config = new Config();
+                config.init();
             }
         });
         setVisible(true);
@@ -226,7 +240,7 @@ public class Client extends JPanel {
         try {
             // 文件名和长度
             String fileName = Session.session.get("username") + "_keep" + index + ".txt";
-            File file = new File("src/data/archive/" + File.separatorChar + fileName);
+            File file = new File("data/archive/" + File.separatorChar + fileName);
             System.out.println("======== 开始接收文件 " + fileName + " =========");
             fos = new FileOutputStream(file);
             // 开始接收文件
@@ -278,7 +292,7 @@ public class Client extends JPanel {
         FileInputStream fis = null;
         DataOutputStream dos = dataOutputStream;
         try {
-            File file = new File("src/data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
+            File file = new File("data/archive/" + Session.session.get("username") + "_keep" + index + ".txt");
             if (file.exists()) {
                 fis = new FileInputStream(file);
                 dos.writeUTF(file.getName());

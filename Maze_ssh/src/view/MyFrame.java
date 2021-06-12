@@ -3,9 +3,7 @@ package view;
 import session.Session;
 
 import java.awt.*;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.io.File;
 
 import javax.swing.*;
@@ -44,11 +42,12 @@ public class MyFrame extends JFrame {
 
     public void init() {
         setTitle("Ä§Ëþ");
-        setIconImage(new ImageIcon("src/data/man/2.jpg").getImage());
+        setIconImage(new ImageIcon("data/man/2.jpg").getImage());
         setBounds(100, 200, 1120, 750);
         setLocationRelativeTo(null);
         setResizable(false);
         MyFrame that = this;
+
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -57,7 +56,7 @@ public class MyFrame extends JFrame {
                 that.dispose();
                 try {
                     for (int i = 1; i <= 3; i++) {
-                        File file = new File("src/data/archive/" + Session.session.get("username") + "_keep" + i + ".txt");
+                        File file = new File("data/archive/" + Session.session.get("username") + "_keep" + i + ".txt");
                         if (file.length() == 0) {
                             continue;
                         }

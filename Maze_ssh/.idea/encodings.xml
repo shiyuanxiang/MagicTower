@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/data/battle/battling.gif" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/controller/Auto.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/controller/AutoArc.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/controller/GameKeyListener.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/data/battle/battling.gif" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/element/Enemy.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/element/GameElement.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/element/Man.java" charset="GBK" />

@@ -26,15 +26,15 @@ public class Battle extends JDialog {
         JLabel title = new JLabel("Õ½¶·°É!");
         JPanel battle_background = new JPanel();
         JLabel battle_lable = new JLabel();
-        ImageIcon battle_photo = new ImageIcon("src/data/battle/battling.gif");
+        ImageIcon battle_photo = new ImageIcon("data/battle/battling.gif");
         Image battle_image;
         JLabel man_label = new JLabel();
         JLabel man_attack = new JLabel("¹¥:" + man.getAttack());
         JLabel man_defense = new JLabel("·À:" + man.getDefense());
         JLabel man_blood = new JLabel("Ñª:" + man.getBlood());
-        ImageIcon man_photo = new ImageIcon("src/data/man/" + Battle.man_photo_cnt + ".jpg");
+        ImageIcon man_photo = new ImageIcon("data/man/" + Battle.man_photo_cnt + ".jpg");
         JLabel enemy_label = new JLabel();
-        ImageIcon enemy_photo = new ImageIcon("src/data/change/" + enemy.getType() + ".jpg");
+        ImageIcon enemy_photo = new ImageIcon("data/change/" + enemy.getType() + ".jpg");
         JLabel enemy_attack = new JLabel("¹¥:" + enemy.getAttack());
         JLabel enemy_defense = new JLabel("·À:" + enemy.getDefense());
         JLabel enemy_blood = new JLabel("ÑªÁ¿:" + enemy.getBlood());
@@ -86,14 +86,14 @@ public class Battle extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 Battle.man_photo_cnt++;
                 Battle.man_photo_cnt %= 4;
-                ImageIcon man_photo = new ImageIcon("src/data/man/" + Battle.man_photo_cnt + ".jpg");
+                ImageIcon man_photo = new ImageIcon("data/man/" + Battle.man_photo_cnt + ".jpg");
                 man_label.setIcon(new ImageIcon(man_photo.getImage().getScaledInstance(man_label.getWidth(), man_label.getHeight(), man_photo.getImage().SCALE_DEFAULT)));
 
                 ImageIcon enemy_photo_change;
                 if ((Battle.man_photo_cnt % 2) == 0) {
-                    enemy_photo_change = new ImageIcon("src/data/change/" + enemy.getType() + ".jpg");
+                    enemy_photo_change = new ImageIcon("data/change/" + enemy.getType() + ".jpg");
                 } else {
-                    enemy_photo_change = new ImageIcon("src/data/change/" + (enemy.getType() + 1) + ".jpg");
+                    enemy_photo_change = new ImageIcon("data/change/" + (enemy.getType() + 1) + ".jpg");
                 }
                 enemy_label.setIcon(new ImageIcon(enemy_photo_change.getImage().getScaledInstance(enemy_label.getWidth(), enemy_label.getHeight(), enemy_photo_change.getImage().SCALE_DEFAULT)));
 

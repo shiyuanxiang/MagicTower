@@ -12,15 +12,15 @@ public class Login extends JFrame {
     private JTextField password_input = new JFormattedTextField("密码");
     private JLabel tips = new JLabel();
 
-    public boolean isLogin() {
-        return isLogin;
-    }
-
     public Login() {
         init();
     }
 
-    private boolean isLogin = false;
+    public boolean isLogin = false;
+
+    public boolean isLogin() {
+        return isLogin;
+    }
 
     public void init() {
         //边框设置
@@ -45,7 +45,7 @@ public class Login extends JFrame {
         JLabel register = new JLabel("还没有账号？点击注册");
         JTextField username_input = new JTextField(12);
         JTextField password_input = new JTextField(12);
-        ImageIcon icon = new ImageIcon("src/data/login/background.png");
+        ImageIcon icon = new ImageIcon("data/login/background.png");
         ImagePanel container = new ImagePanel(icon.getImage());
 
         //组件配置
@@ -88,6 +88,7 @@ public class Login extends JFrame {
                         if (User.login(username, password)) {
                             //登录成功
                             isLogin = true;
+                            System.out.println("登录成功");
                             Session.session.put("username", username);
                             Session.session.put("password", password);
                         } else {
@@ -116,6 +117,7 @@ public class Login extends JFrame {
                     if (User.login(username, password)) {
                         //登录成功
                         isLogin = true;
+                        System.out.println("登录成功");
                         Session.session.put("username", username);
                         Session.session.put("password", password);
                     } else {

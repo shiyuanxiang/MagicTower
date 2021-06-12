@@ -23,11 +23,11 @@ public class MyPanelright extends JPanel implements Runnable {
 
     public void paint(Graphics g) {
         super.paint(g);
-        ImageIcon icon1 = new ImageIcon("src/data/others/½áÊøÓï1.png");
-        ImageIcon icon2 = new ImageIcon("src/data/others/½áÊøÓï3.png");
-        ImageIcon icon3 = new ImageIcon("src/data/others/ÕÚÕÖ.png");
-        ImageIcon icon4 = new ImageIcon("src/data/others/op_bg.jpg");
-        ImageIcon icon5 = new ImageIcon("src/data/others/ĞòÄ»Óï2.png");
+        ImageIcon icon1 = new ImageIcon("data/others/½áÊøÓï1.png");
+        ImageIcon icon2 = new ImageIcon("data/others/½áÊøÓï3.png");
+        ImageIcon icon3 = new ImageIcon("data/others/ÕÚÕÖ.png");
+        ImageIcon icon4 = new ImageIcon("data/others/op_bg.jpg");
+        ImageIcon icon5 = new ImageIcon("data/others/ĞòÄ»Óï2.png");
         this.setBackground(new Color(0, 0, 0));
         em = Manager.getManager(Auto.getKey());
         setBounds(320, 0, 720, 720);

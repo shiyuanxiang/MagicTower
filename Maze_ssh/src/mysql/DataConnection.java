@@ -1,5 +1,9 @@
 package mysql;
 
+import session.Session;
+import view.Config;
+
+import javax.swing.*;
 import java.sql.*;
 
 public class DataConnection {
@@ -17,11 +21,12 @@ public class DataConnection {
         //获取数据库连接
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/user", "root", "Syxkxlm666.");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/user", (String) Session.session.get("db_username"), (String) Session.session.get("db_password"));
             System.out.println("建立数据库连接成功");
             statement = connection.createStatement();
         } catch (Exception e) {
-            e.printStackTrace();
+            Config config = new Config();
+            config.init();
             System.out.println("建立数据库连接错误");
         }
     }

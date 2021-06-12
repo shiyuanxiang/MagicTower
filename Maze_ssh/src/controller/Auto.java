@@ -14,21 +14,14 @@ import java.io.FileInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * 游戏运行控制
- *
- * @author Administrator
- * 多线程: 1.用于屏幕的刷新
- * 第2种方式： 继承与 Thread多线程类  重写 run方法
- */
 public class Auto extends Thread {
     private Manager em = Manager.getManager(key);//获取这关的管理器
     private int time = 0;//用于调整怪物的图片变动的快慢
     public static boolean canFly = false;
-    private static int key = 1;//第几关
+    private static int key = 0;//第几关
     private static int canGostairs = 0;//1表示上楼 -1表示下楼
     public static boolean isBeforing = true;
-    public static String res = "src/data/pro/";
+    public static String res = "data/pro/";
     public static boolean[] isLoad = new boolean[30];
 
     //	游戏的主程序     游戏开发  游戏主程

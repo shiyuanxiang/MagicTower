@@ -33,7 +33,7 @@ public class MyPanelleft extends JPanel implements Runnable {
         em = Manager.getManager(1);
         //tj.setBounds(20, 650, 200, 100);
         this.setBackground(new Color(100, 100, 100));
-        ImageIcon icon = new ImageIcon("src/data/man/2.jpg");
+        ImageIcon icon = new ImageIcon("data/man/2.jpg");
         g.drawImage(icon.getImage(), 20, 20, 36, 38, null);
         g.setFont(new Font("宋体", Font.BOLD, 20));
         g.setColor(new Color(255, 255, 255));
@@ -59,23 +59,23 @@ public class MyPanelleft extends JPanel implements Runnable {
         g.drawString("金币", 20, 180);
         g.drawString("经验", 20, 210);
 
-        icon = new ImageIcon("src/data/obj/8.jpg");
+        icon = new ImageIcon("data/obj/8.jpg");
         g.drawImage(icon.getImage(), 20, 220, 36, 38, null);
-        icon = new ImageIcon("src/data/obj/9.jpg");
+        icon = new ImageIcon("data/obj/9.jpg");
         g.drawImage(icon.getImage(), 20, 270, 36, 38, null);
-        icon = new ImageIcon("src/data/obj/10.jpg");
+        icon = new ImageIcon("data/obj/10.jpg");
         g.drawImage(icon.getImage(), 20, 320, 36, 38, null);
         g.drawString("神秘道具", 90, 380);
-        icon = new ImageIcon("src/data/obj/35.jpg");
+        icon = new ImageIcon("data/obj/35.jpg");
         g.drawImage(icon.getImage(), 20, 390, 36, 38, null);
         g.drawImage(icon.getImage(), 20, 440, 36, 38, null);
-        icon = new ImageIcon("src/data/obj/18.jpg");
+        icon = new ImageIcon("data/obj/18.jpg");
         if (Man.haveBook) {
             g.drawImage(icon.getImage(), 20, 390, 36, 38, null);
             g.drawString("按L键查看这层怪物信息", 70, 410);
             g.drawString("再按L键可关闭", 70, 430);
         }
-        icon = new ImageIcon("src/data/obj/29.jpg");
+        icon = new ImageIcon("data/obj/29.jpg");
         if (Man.haveCompass) {
             g.drawImage(icon.getImage(), 20, 440, 36, 38, null);
             g.drawString("按J键楼层跳跃", 70, 460);

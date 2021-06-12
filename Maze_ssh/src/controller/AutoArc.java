@@ -7,7 +7,7 @@ public class AutoArc implements Serializable {
     public int key = 1;//第几关
     public int canGostairs = 0;//1表示上楼 -1表示下楼
     public boolean isBeforing = true;
-    public String res = "src/data/pro/";
+    public String res = "data/pro/";
 
     public AutoArc(boolean canFly, int key, int canGostairs, boolean isBeforing, String res) {
         this.canFly = canFly;

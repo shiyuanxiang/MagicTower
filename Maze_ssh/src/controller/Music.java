@@ -16,22 +16,22 @@ public class Music {
     public static boolean bg_played = false;
 
     public static void play_op() {
-        play("src/data/audio/ø™Õ∑“Ù¿÷.wav");
+        play("data/audio/ø™Õ∑“Ù¿÷.wav");
     }
 
     public static void play_bg() {
         try {
-            FileInputStream fileau = new FileInputStream("src/data/audio/±≥æ∞“Ù¿÷.wav");
+            FileInputStream fileau = new FileInputStream("data/audio/±≥æ∞“Ù¿÷.wav");
             AudioStream as = new AudioStream(fileau);
             AudioPlayer.player.start(as);
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-        Timer music_bg_timer = new Timer(135000, new ActionListener() {
+        Timer music_bg_timer = new Timer(66000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    FileInputStream fileau = new FileInputStream("src/data/audio/±≥æ∞“Ù¿÷.wav");
+                    FileInputStream fileau = new FileInputStream("data/audio/±≥æ∞“Ù¿÷.wav");
                     AudioStream as = new AudioStream(fileau);
                     AudioPlayer.player.start(as);
                 } catch (Exception e1) {

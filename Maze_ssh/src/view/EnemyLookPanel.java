@@ -26,6 +26,7 @@ public class EnemyLookPanel extends JPanel {
         List<GameElement> enemyList = em.getEnemyList();//这一关的怪物集合
         showbookList(enemyList, g);
     }
+
     private void showbookList(List<GameElement> enemyList, Graphics g) {
         int num = 0;
         Man man = (Man) Manager.getManager(1).getManList().get(0);
@@ -35,6 +36,12 @@ public class EnemyLookPanel extends JPanel {
             if (e.getType() > 120) {//先把所有敌人放到map里面，最后再统一输出集合元素的信息
                 set.add(e.getType());
             }
+        }
+        if (set.isEmpty()) {
+            g.setColor(new Color(255, 255, 255));
+            g.setFont(new Font("宋体", Font.BOLD, 50));
+            g.drawString("本层无怪物", 200, 400);
+            return;
         }
         Iterator<Integer> iterator = set.iterator();
         while (iterator.hasNext()) {

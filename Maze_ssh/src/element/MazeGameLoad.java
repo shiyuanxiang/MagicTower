@@ -34,10 +34,10 @@ public class MazeGameLoad {
         em = Manager.getManager(key);
         if (imgArr[1] == null) {
             for (int i = 1; i <= 50; i++) {
-                imgArr[i] = new ImageIcon("src/data/obj/" + i + ".jpg");
+                imgArr[i] = new ImageIcon("data/obj/" + i + ".jpg");
             }
             for (int i = 113; i < pictureNum; i++) {
-                imgArr[i] = new ImageIcon("src/data/change/" + i + ".jpg");
+                imgArr[i] = new ImageIcon("data/change/" + i + ".jpg");
             }
         }
         //判断此关卡是否已经被加载过了
@@ -55,7 +55,7 @@ public class MazeGameLoad {
         //自己重新写读取文件的函数
         try {
             String url = res + key + ".map";
-            File file = new File("src/data/pro/" + key + ".map");
+            File file = new File("data/pro/" + key + ".map");
             InputStream in = new FileInputStream(file);
             BufferedReader bis = new BufferedReader(new InputStreamReader(in));
             String readLine = bis.readLine();

@@ -349,10 +349,10 @@ public class Enemy extends GameElement {
         time++;
         if (time % 2 == 1) {//单数增  偶数剪
             if (time % 7 == 1) // 奇数
-                this.setIcon(new ImageIcon("src/data/change/" + (getType() + 1) + ".jpg"));
+                this.setIcon(new ImageIcon("data/change/" + (getType() + 1) + ".jpg"));
         } else {//偶数
             if (time % 7 == 1)
-                this.setIcon(new ImageIcon("src/data/change/" + getType() + ".jpg"));
+                this.setIcon(new ImageIcon("data/change/" + getType() + ".jpg"));
         }
     }
 

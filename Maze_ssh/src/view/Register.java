@@ -39,7 +39,7 @@ public class Register extends JFrame {
         JLabel password_label = new JLabel("ÃÜÂë£º");
         JTextField username_input = new JTextField(12);
         JTextField password_input = new JTextField(12);
-        ImageIcon bg_icon = new ImageIcon("src/data/register/background.png");
+        ImageIcon bg_icon = new ImageIcon("data/register/background.png");
         ImagePanel container = new ImagePanel(bg_icon.getImage());
 
         //×é¼şÅäÖÃ

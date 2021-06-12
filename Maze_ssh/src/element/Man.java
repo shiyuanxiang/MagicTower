@@ -21,9 +21,9 @@ public class Man extends GameElement {
     private int type = 2;//默认朝下走路
     private int leval = 1;
     private int blood = 1000;
-    private int attack = 1000;
-    private int defense = 1000;
-    private int money = 1000;
+    private int attack = 10;
+    private int defense = 10;
+    private int money = 0;
     private int exe = 0;
     private int yellowKey = 1;
     private int blueKey = 1;
@@ -32,8 +32,8 @@ public class Man extends GameElement {
     private int objy = getY();
     public int tallestFloor = 0;//最高去过哪层
     private boolean cl = false;
-    public static boolean haveBook = true;//怪物手册
-    public static boolean haveCompass = true;//风之罗盘
+    public static boolean haveBook = false;//怪物手册
+    public static boolean haveCompass = false;//风之罗盘
     public static int haveHoe = 0;//铁镐
     public static int haveCross = 0;//十字架
     private static ImageIcon[] icon = new ImageIcon[4];
@@ -238,10 +238,10 @@ public class Man extends GameElement {
                 exe += en.getExe();
                 Battle battle = new Battle(this, en, true, KO(en), en.getMoney(), en.getExe());
                 Manager.getManager(Auto.getKey()).getEnemyList().remove(e);
-                ImageIcon icon = new ImageIcon("src/data/obj/11.jpg");
+                ImageIcon icon = new ImageIcon("data/obj/11.jpg");
                 Manager.getManager(Auto.getKey()).getObjList().add(new Obj(objx, objy, icon, 11));
                 Manager.getManager(Auto.getKey()).getThings()[objx][objy] = 11;
-                Music.play("src/data/audio/攻击.wav");
+                Music.play("data/audio/攻击.wav");
             }
             setX(objx);
             setY(objy);
@@ -383,14 +383,7 @@ public class Man extends GameElement {
         }
         if (caneat) {
             o.type = 11;
-            Music.play("src/data/audio/吃道具.wav");
-//            try {
-//                URL cb = new File("src/data/audio/吃道具.wav").toURL();
-//                Applet.newAudioClip(cb).play();
-//                JFrame jf = new JFrame();
-//            } catch (MalformedURLException e1) {
-//                e1.printStackTrace();
-//            }
+            Music.play("data/audio/吃道具.wav");
         }
         return caneat;
     }
@@ -488,7 +481,7 @@ public class Man extends GameElement {
 
     public static Man createMan(int X, int Y) {
         for (int i = 0; i < 4; i++) {
-            String url = "src/data/man/" + i + ".jpg";
+            String url = "data/man/" + i + ".jpg";
             icon[i] = new ImageIcon(url);
         }
         return new Man(X, Y, icon[2]);
